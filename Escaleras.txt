@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+// Función que cuenta las formas de subir los escalones
+int contar(int n) {
+
+    // Si ya llegamos exactamente al último escalón es unica forma de subir 
+    if (n == 0)
+        return 1;
+
+    // Si nos pasamos, esta forma no cuenta
+    if (n < 0)
+        return 0;
+        
+    //Podemos subir las escaleras de 2 formas 
+    return contar(n - 1) + contar(n - 2);
+}
+int main() {
+    int n;
+    cout << "Ingrese el numero de escalones: ";
+    cin >> n;
+
+    //Verificamos que el número sea válido
+    if (n < 0) {
+        cout << "Entrada invalida" << endl;
+    } else {
+        // Mostramos el total de formas posibles
+        cout << "Formas posibles: " << contar(n) << endl;
+    }
+
+    return 0;
+}
